@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospitalizacion</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+<div class="container mt-4">
+    <h1 class="mb-4"><%= accion === 'editar' ? 'Editar' : 'Nueva' %> Hospitalizacion</h1>
+    <form action="/hospitalizaciones<%= accion === 'editar' ? '/' + hospitalizacion.id + '?_method=PUT' : '' %>" method="POST">
+        <div class="mb-3">
+            <label class="form-label">Paciente</label>
+            <select name="paciente_id" class="form-select">
+                <% pacientes.forEach(p => { %>
+                    <option value="<%= p.id %>" <%= hospitalizacion && hospitalizacion.paciente_id == p.id ? 'selected' : '' %>>
+                        <%= p.nombre %> <%= p.apellido %>
+                    </option>
+                <% }) %>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Sala</label>
+            <select name="sala_id" class="form-select">
+                <% salas.forEach(s => { %>
+                    <option value="<%= s.id %>" <%= hospitalizacion && hospitalizacion.sala_id == s.id ? 'selected' : '' %>>
+                        <%= s.nombre %>
+                    </option>
+                <% }) %>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Fecha Ingreso</label>
+            <input type="date" name="fecha_ingreso" class="form-control" value="<%= hospitalizacion && hospitalizacion.fecha_ingreso ? hospitalizacion.fecha_ingreso.toISOString().split('T')[0] : '' %>">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Fecha Alta <span class="text-muted">(opcional)</span></label>
+            <input type="date" name="fecha_alta" class="form-control" value="<%= hospitalizacion && hospitalizacion.fecha_alta ? hospitalizacion.fecha_alta.toISOString().split('T')[0] : '' %>">
+        </div>
+        <button type="submit" class="btn btn-primary">
+            <%= accion === 'editar' ? 'Guardar cambios' : 'Crear hospitalizacion' %>
+        </button>
+        <a href="/hospitalizaciones" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
