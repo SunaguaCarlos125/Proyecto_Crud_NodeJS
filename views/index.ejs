@@ -1,3 +1,4 @@
+<!-- views/index.ejs -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,16 +8,34 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">HospitalDB</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="/pacientes">Pacientes</a></li>
+                <li class="nav-item"><a class="nav-link" href="/hospitalizaciones">Hospitalizaciones</a></li>
+                <li class="nav-item"><a class="nav-link" href="/salas">Salas</a></li>
+                <li class="nav-item"><a class="nav-link" href="/tiposdiagnostico">Tipos de Diagnostico</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 <div class="container mt-5">
-    <h1 class="mb-2">Sistema de Gestion de Hospitalizacion</h1>
-    <p class="text-muted mb-4">Seleccione un modulo para gestionar:</p>
-    <div class="list-group">
-        <a href="/pacientes" class="list-group-item list-group-item-action">Gestion de Pacientes</a>
-        <a href="/hospitalizaciones" class="list-group-item list-group-item-action">Gestion de Hospitalizaciones</a>
-        <a href="/salas" class="list-group-item list-group-item-action">Gestion de Salas</a>
-        <a href="/tiposdiagnostico" class="list-group-item list-group-item-action">Tipos de Diagnostico</a>
+    <div class="text-center">
+        <h1 class="display-4 fw-bold">Sistema de Gestion de Hospitalizacion</h1>
+        <p class="lead text-muted mt-3">Administra pacientes, hospitalizaciones, salas y tipos de diagnostico desde un solo lugar.</p>
+        <img src="/img/imagen-hospital.jpg" alt="imagen-hospital">
+        <hr class="my-4">
+        
     </div>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

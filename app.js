@@ -1,4 +1,3 @@
-// app.js
 const express = require('express');
 const methodOverride = require('method-override');
 const path = require('path');
@@ -11,7 +10,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride('_method'));
-
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/salas', require('./routes/salas'));
 app.use('/tiposdiagnostico', require('./routes/tiposDiagnostico'));
 app.use('/pacientes', require('./routes/pacientes'));
